@@ -22,4 +22,5 @@ page
 - Would want unit tests as appropriate
 - Some sort of loading indicator would be good during the login call
 - Styling meets requirements, but is likely sub-optimal
+- Form stays centered in any viewport, but could be more responsive
 - All the strings hardcoded in the template should be localized and defined in a resource file or something
