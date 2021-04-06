@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
+import { LoginDialogComponent } from '../login-dialog/login-dialog.component'
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login-form',
@@ -10,9 +12,8 @@ import { LoginService } from '../login.service';
 
 export class LoginFormComponent implements OnInit {
   form: FormGroup;
-  public loginInvalid = false;
 
-  constructor(private loginService: LoginService) { 
+  constructor(private loginService: LoginService, private dialog: MatDialog) { 
     this.form = new FormGroup({
       username: new FormControl('c137@onecause.com', [ Validators.required, Validators.email ]),
       password: new FormControl('#th@nH@rm#y#r!$100%D0p#', [ Validators.required ]),
@@ -24,18 +25,16 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void { }
 
   onSubmit() {
-    this.loginInvalid = false;
-
     this.loginService
       .login(this.form.value)
       .subscribe(
-        ()=>{
+        () => {
           console.log("Login succeeded");
           window.location.href = "http://onecause.com";
         },
         error => {
           console.error("Login error");
-          this.loginInvalid = true;
+          this.dialog.open(LoginDialogComponent);
         }); 
   }
 }

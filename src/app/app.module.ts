@@ -12,11 +12,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
+    MatDialogModule,
     BrowserAnimationsModule,
   ],
   providers: [],
