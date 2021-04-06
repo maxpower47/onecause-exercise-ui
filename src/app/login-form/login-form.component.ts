@@ -15,8 +15,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private loginService: LoginService, private dialog: MatDialog) { 
     this.form = new FormGroup({
-      username: new FormControl('c137@onecause.com', [ Validators.required, Validators.email ]),
-      password: new FormControl('#th@nH@rm#y#r!$100%D0p#', [ Validators.required ]),
+      username: new FormControl('', [ Validators.required, Validators.email ]),
+      password: new FormControl('', [ Validators.required ]),
       token: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]{4}$") ])
     });
 
